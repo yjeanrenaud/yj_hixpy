@@ -3,7 +3,7 @@ Eine Pythonfunktion, um Texte mittels Hohenheimer Verständlichkeitsindex (HIX) 
 Der Hohenheimer Verständlichkeitsindex (HIX) wird benutzt, um die Verständlichkeit von deutschsprachigen Textenobjetiv bewerten und vergleichen zu können.
 Mehr dazu und zur Arbeit von [Frank Breitschneider und Claudia Thoms](https://klartext.uni-hohenheim.de/hix) an der Universität Hohenheim gibt es beispielsweise auch in
 Brettschneider, Frank (2019). Verständliche PR-Sprache – Klartext statt Kauderwelsch. In: Ternès, A., Englert, M. (eds) Digitale Unternehmensführung. Springer Gabler, Wiesbaden. [https://doi.org/10.1007/978-3-658-23053-1_10](https://doi.org/10.1007/978-3-658-23053-1_10).
-Der Fremdwortanteil wird derzeit nicht berücksichtigt von dieser Funktion.
+Der Fremdwortanteil wird nun berücksichtigt.
 
 - Because HIX is something quite uniquely applicable to German texts, this readme is solely in German.
 
@@ -27,5 +27,5 @@ print("Der Hohenheimer Verständlichkeitsindex (HIX) für den gegebenen Text bet
 ```
 
 # todos
-- Fremdwörter berücksichtigen
+- Fremdwörter besser erkennen. Lingustics, anyone?
 - hardening
