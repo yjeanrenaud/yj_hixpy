@@ -4,6 +4,12 @@
 
 import re
 
+def is_foreign_word(word):
+    # Beispiel einer sehr simplen Heuristik: Wörter, die mit typischen fremdsprachigen Suffixen enden
+    # Dies ist lediglich ein Platzhalter und sollte durch eine robustere Logik ersetzt werden
+    foreign_suffixes = ('-tion', '-ity', '-logy','-mus','-ix', '-ist', '-ik', '-ie','-tor','-tät','-ine','-iv','-ös','-iell','-ieren','-ine','-ät','-är','-que','-ik','-eur','-um')
+    return any(word.endswith(suffix) for suffix in foreign_suffixes)
+
 def yjCalcHIX(text):
     # get rid of special chars and split the sentences.
     sentences = re.split(r'[.!?]', text)
@@ -24,12 +30,18 @@ def yjCalcHIX(text):
             if num_vowels == 0:
                 num_vowels = 1
             total_syllables += num_vowels
+             # Erkennung von Fremdwörtern
+            if is_foreign_word(word):
+                total_foreign_words += 1
 
     # Average sentence length
     avg_sentence_length = total_words / len(sentences)
     # Average word length
     avg_word_length = total_syllables / total_words
+    # Foreign word / word ratio
+    foreign_word_ratio = total_foreign_words / total_words if total_words > 0 else 0
+    
     # calc HIX
-    HIX = 30 * (avg_sentence_length / avg_word_length) + 3.1291
+     HIX = 30 * (avg_sentence_length / avg_word_length) + 3.1291 - (foreign_word_ratio * 50)
 
     return HIX
